@@ -1,0 +1,30 @@
+/*EXAMEN PARCIAL
+ Nombre: Victor Galvis*/
+
+/*Part I*/
+/* 1.Create a tablespace named "mid_term" with one datafile, the datafile should have
+     your last_name and the size of the datafile is 25Mb.*/
+     
+CREATE TABLESPACE mid_term DATAFILE 'mid_term.DBF' SIZE 25M;
+
+
+/* 2. Create a profile named "exam" with 4 failed attempts of login and 10 minutes of idle time. */
+
+CREATE PROFILE exam LIMIT 
+	SESSIONS_PER_USER 1
+    PASSWORD_LIFE_TIME 40
+    IDLE_TIME 10
+    FAILED_LOGIN_ATTEMPTS 4;
+    
+    
+/* 3. Create a user named "ejercicios" with unlimited 
+      space in the tablespace, associated to the exam profile. */ 
+      
+ CREATE USER ejercicios 
+	IDENTIFIED BY ejercicios
+	DEFAULT TABLESPACE mid_term 
+	PROFILE exam;
+    
+   
+/* 4.  With the user "ejercicios" create the tables proposed in the model and import the data. */
+
